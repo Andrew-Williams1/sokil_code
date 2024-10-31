@@ -1,5 +1,5 @@
 
-x = [11 16 18];
+x = [13 15 17 16];
 
 % Set up Legend
 legend_all = ["Empty chamber (w/ cardboard)", "Empty chamber (w/out cardboard)", "Steel ball", "Acrylic ball", "HDPE Green sheet", "Steel block", "Aluminum sheet"];
@@ -21,21 +21,25 @@ for i = x
     % Log magnitude
     subplot(3,1,1);
     hold on;
-    plot(freq, logmag, 'LineWidth', 1.5);
+    %plot(freq, logmag, 'LineWidth', 1.5);
+    plot(freq, data(4,:), 'LineWidth', 1.5);
     xlabel('Frequency [MHz]');
     ylabel('Log Magnitude');
     title('Log Magnitude |S11| comparison');
     legend(legend_L, 'Location', 'southwest');
     hold off;
+
     % Phase
     subplot(3,1,2);
     hold on;
-    plot(freq, unwrap(phase), 'LineWidth', 1.5);
+    %plot(freq, unwrap(phase), 'LineWidth', 1.5);
+    plot(freq, data(5,:), 'LineWidth', 1.5);
     xlabel('Frequency [MHz]');
     ylabel('Unwrapped Phase [rap]');
     title('S11 Phase comparison');
     legend(legend_L, 'Location', 'southwest');
     hold off;
+
     % Inverse Fourier Transform
     subplot(3,1,3);
     hold on;
@@ -54,3 +58,4 @@ for i = x
     legend(legend_L, 'Location', 'northeast');
     hold off;
 end
+

@@ -18,7 +18,7 @@ for y = x
     i = find(x_all==y); % index of desired x
     legend_L = [legend_L, legend_all(i)];
 end
-%   
+
 % Make plots
 linewidth = .9;
 figure
@@ -51,8 +51,12 @@ for i = x
     legend(legend_L, 'Location', 'southwest');
     hold off;
 
-    subplot(3,1,3);
-    hold on;
+    %subplot(3,1,3);
+    
+end
+
+figure
+hold on;
     fdiff = (10^7)/3; % svna from 700 MHz - 3 GHz w/ 750 data points
     N = 2000; % N > 2*750
     fs = N*fdiff;
@@ -70,16 +74,16 @@ for i = x
     FD(vna_negative_start:vna_negative_end) = flip(conj(comp));  % do the same to negative freqs.
     TD = ifft(FD); % normalized time domain signals
     plot(t,real(TD), 'LineWidth', linewidth);
-    %hold on
-    %plot(t,imag(TD), 'LineWidth', linewidth);
+    hold on
+    plot(t,imag(TD), 'LineWidth', linewidth);
     xlabel('Wrong units');
     ylabel('Normalized S11');
     title('Normalized Inverse Fourier Transform');
     legend(legend_L, 'Location', 'northeast');
-    hold off;  
-end
+    hold off; 
+    figure
+    plot(f,FD);
 
-    
 
     
 
