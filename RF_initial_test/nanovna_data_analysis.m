@@ -17,7 +17,7 @@ function output = nanovna_data_analysis(x)
         csv_filename = append('sokil10-7_',file_i,'.csv');
     
         % Read the CSV file into a matrix
-        data = csvread(csv_filename);
+        data = csvread(data_folder/csv_filename);
         
         % Extract the columns as matrices with all the data
         freq(i,:) = data(:, 1);  % frequency

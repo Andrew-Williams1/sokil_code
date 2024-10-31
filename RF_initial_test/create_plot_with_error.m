@@ -1,4 +1,5 @@
 % Sokil Clinic 2024-2025
+% odshgjrpowejfgwoerisdlkjvs
 % chat gpt
 function create_plot_with_error(freq_avg, mag_avg, phase_avg, mag_SER, phase_SER);
     % Plot Magnitude
